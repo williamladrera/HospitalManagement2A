@@ -45,10 +45,12 @@ module.exports.deleteAdmission = (req, res) => {
             if (!admission) {
                 return res.status(404).json({ error: 'Admission not found' });
             }
+            console.log('Admission deleted successfully:', admissionID); // Added console log
             res.status(200).json(admission);
         })
         .catch((error) => res.status(500).json({ error: error.message || "Internal Server Error" }));
 };
+
 
 module.exports.updateAdmission = (req, res) => {
     const { admissionDate, dischargeDate, diagnosis } = req.body;
