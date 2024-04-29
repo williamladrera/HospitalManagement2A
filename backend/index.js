@@ -25,13 +25,18 @@ db.on("error", (err) => {
 });
 
 db.once("open", () => console.log("connected to MongoDB"));
+
 // Routes
 const patientRoute = require('./routes/patientRoute');
+const doctorRoute = require('./routes/doctorRoute');
+const admissionRoute = require('./routes/admissionRoute');
+
 app.use('/api/v1/patients', patientRoute); // Mounting patientRoute under /api/v1/patients
+app.use('/api/v1/doctors', doctorRoute); // Mounting doctorRoute under /api/v1/doctors
+app.use('/api/v1/admissions', admissionRoute); // Mounting admissionRoute under /api/v1/admissions
 
 // Start server
 app.listen(port, () => {
-
     console.log("new change 1");
     console.log("new change 2");
     console.log("new change 3");
