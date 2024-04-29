@@ -29,12 +29,16 @@ const patientDocument = new Schema({
         default: true
     },
 
-    // dateConfined: {
+    confined: {
+        type : Boolean,
+        default: true
+    },
 
-    //     type: Date,
-    //     default: new Date.now(),
-    // }
+    dateConfined: {
+        type: Date,
+        default: new Date()
+    },
 });
 
-const Patient = mongoose.model("Patient", patientDocument)
-module.exports = Patient // lines needed to be exported to the controller
+const Patient = mongoose.model("Patient", patientDocument);
+module.exports = Patient; // lines needed to be exported to the controller
